@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../cssFiles/App.css";
 import FinishPage from "./finishPage";
 import QuestionPage from "./questionPage";
@@ -97,7 +98,14 @@ const App: React.FC = () => {
     }
   };
 
-  return <div className="App">{renderSwitch()}</div>;
+  return (
+    <>
+      <nav>
+        <Link to="/">Home page</Link>
+      </nav>
+      <div className="App">{renderSwitch()}</div>
+    </>
+  );
 };
 
 export default App;

@@ -5,9 +5,7 @@ interface IProp {
 }
 
 const Question: React.FC<IProp> = ({ text }) => {
-  return (
-      <h2>{text}</h2>
-  );
+  return <h2>{text}</h2>;
 };
 
 export default Question;

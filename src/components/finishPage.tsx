@@ -19,7 +19,8 @@ const FinishPage: React.FC<IProp> = ({
         {numQuestions} questions
       </h3>
       <div className="startGame">
-        <input className="startGameButton"
+        <input
+          className="startGameButton"
           type="submit"
           value="start over"
           onClick={() => {

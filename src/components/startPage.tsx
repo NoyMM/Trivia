@@ -10,7 +10,8 @@ const StartPage: React.FC<IProp> = ({ startGame }) => {
     <div>
       <h1>Welcome to my trivia game!</h1>
       <div className="startGame">
-        <input className="startGameButton"
+        <input
+          className="startGameButton"
           type="submit"
           value="Start Game"
           onClick={() => {
