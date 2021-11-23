@@ -1,10 +1,39 @@
 .App {
+  width: 1000px;
+  height: 665px;
+  margin: auto;
+  background-color: #E1F4FE;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startGame {
+  text-align: center;
+}
+
+.startGameButton {
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: large;
+}
+
+.NextButton {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.correctAnswers {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 @media (prefers-reduced-motion: no-preference) {
