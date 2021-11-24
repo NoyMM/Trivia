@@ -45,7 +45,7 @@ const App: React.FC = () => {
     setChosenAnswers(Array(questionsList.length).fill(""));
   };
 
-  const nextPage = () => {
+  const getNextPage = () => {
     if (questionIndex === numQuestions - 1) {
       setGameState(GameState.End);
     } else {
@@ -82,7 +82,7 @@ const App: React.FC = () => {
           <QuestionPage
             questionsList={questionsList}
             answersList={answersList}
-            nextPage={nextPage}
+            getNextPage={getNextPage}
             questionIndex={questionIndex}
             updateChosenAnswer={updateChosenAnswer}
           />

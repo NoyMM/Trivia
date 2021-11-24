@@ -8,7 +8,7 @@ interface IProp {
   answersList: Array<object>;
   questionIndex: number;
   updateChosenAnswer: Function;
-  nextPage: Function;
+  getNextPage: Function;
 }
 
 const QuestionPage: React.FC<IProp> = ({
@@ -16,7 +16,7 @@ const QuestionPage: React.FC<IProp> = ({
   answersList,
   questionIndex,
   updateChosenAnswer,
-  nextPage,
+  getNextPage,
 }) => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const enableButton = () => {
@@ -24,7 +24,7 @@ const QuestionPage: React.FC<IProp> = ({
   };
   const handleClick = () => {
     setButtonDisabled(true);
-    nextPage();
+    getNextPage();
   };
 
   return (
