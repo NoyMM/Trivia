@@ -1,23 +1,25 @@
 import React from "react";
 import "../cssFiles/App.css";
+import { useDispatch } from "react-redux";
+import { startGame } from "../store/triviaSlice";
+import { NavLink } from "react-router-dom";
 
-interface IProp {
-  startGame: Function;
-}
+const StartPage: React.FC = () => {
+  const dispatch = useDispatch();
 
-const StartPage: React.FC<IProp> = ({ startGame }) => {
+  const handleClick = () => {
+    dispatch(startGame());
+  };
+
   return (
     <div>
       <h1>Welcome to my trivia game!</h1>
       <div className="startGame">
-        <input
-          className="startGameButton"
-          type="submit"
-          value="Start Game"
-          onClick={() => {
-            startGame();
-          }}
-        />
+        <button className="startGameButton" type="submit" id="startButton">
+          <NavLink to="/Trivia/1" onClick={handleClick}>
+            Start Game
+          </NavLink>
+        </button>
       </div>
       <div>
         <img

@@ -2,8 +2,8 @@
   width: 1000px;
   height: 665px;
   margin: auto;
-  background-color: #E1F4FE;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e1f4fe;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -25,9 +25,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.BackButton {
+  text-align: center;
 }
 
 .correctAnswers {
