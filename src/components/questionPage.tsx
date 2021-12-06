@@ -1,19 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import {
-  disableNextButton,
-  getNextPage,
-  getPrevPage,
-} from "../store/triviaSlice";
+import { getNextPage, getPrevPage } from "../store/triviaSlice";
 import { NavLink } from "react-router-dom";
 import AnswerList from "./answerList";
 import Question from "./question";
-import "../cssFiles/App.css";
+import "./App.css";
+
+const calcPathToPrevPage = (questionNumber: number) => {
+  return 1 < questionNumber ? "/Trivia/" + (questionNumber - 1) : "/Trivia";
+};
+
+const calcPathToNextPage = (questionNumber: number, numQuestions: number) => {
+  return questionNumber < numQuestions
+    ? "/Trivia/" + (questionNumber + 1)
+    : "/Trivia/FinishGame";
+};
 
 const QuestionPage: React.FC = () => {
-  const dispatch = useDispatch();
-
   const questionsList = useSelector(
     (state: RootState) => state.trivia.questionsList
   );
@@ -22,18 +26,15 @@ const QuestionPage: React.FC = () => {
     (state: RootState) => state.trivia.questionIndex
   );
 
-  const isNextButtonEnabled = useSelector(
-    (state: RootState) => state.trivia.isNextButtonEnabled
-  );
-
   const questionNumber = questionIndex + 1;
+
+  const dispatch = useDispatch();
 
   const handleClickBack = () => {
     dispatch(getPrevPage());
   };
 
-  const handleClick = () => {
-    dispatch(disableNextButton());
+  const handleClickNext = () => {
     dispatch(getNextPage());
   };
 
@@ -47,29 +48,18 @@ const QuestionPage: React.FC = () => {
       <Question />
       <AnswerList />
       <div>
-        <button className="BackButton" type="submit" key={questionIndex + "b"}>
+        <button className="BackButton" type="submit">
           <NavLink
-            to={
-              1 < questionNumber ? "/Trivia/" + (questionNumber - 1) : "/Trivia"
-            }
+            to={calcPathToPrevPage(questionNumber)}
             onClick={handleClickBack}
           >
             Back
           </NavLink>
         </button>
-        <button
-          className="NextButton"
-          type="submit"
-          key={questionIndex + "n"}
-          disabled={!isNextButtonEnabled}
-        >
+        <button className="NextButton" type="submit">
           <NavLink
-            to={
-              questionNumber < questionsList.length
-                ? "/Trivia/" + (questionNumber + 1)
-                : "/Trivia/FinishGame"
-            }
-            onClick={handleClick}
+            to={calcPathToNextPage(questionNumber, questionsList.length)}
+            onClick={handleClickNext}
           >
             Next
           </NavLink>

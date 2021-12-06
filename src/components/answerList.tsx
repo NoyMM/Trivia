@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { enableNextButton, updateChosenAnswer } from "../store/triviaSlice";
+import { updateChosenAnswer } from "../store/triviaSlice";
 import IChosenAnswer from "../models/IChosenAnswer";
 import Answer from "./answer";
 
@@ -16,8 +16,11 @@ const AnswerList: React.FC = () => {
     (state: RootState) => state.trivia.answersList[questionIndex]
   );
 
+  // const chosenAnswer = useSelector(
+  //   (state: RootState) => state.trivia.chosenAnswers[questionIndex]
+  // );
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(enableNextButton());
     const chosenAnswer: IChosenAnswer = {
       questionIndex: questionIndex,
       answer: e.target.value,
@@ -25,18 +28,17 @@ const AnswerList: React.FC = () => {
     dispatch(updateChosenAnswer(chosenAnswer));
   };
 
+  // const isButtonSelected = (e: any) => {
+  //   return chosenAnswer === e.target.value;
+  // }
+
   return (
     <>
-      {Object.entries(answersList).map(([key, value]) => {
+      {answersList.map((element, index) => {
         return (
-          <div key={`${key}_${questionIndex}`}>
-            <input
-              type="radio"
-              name="button"
-              value={key}
-              onChange={handleChange}
-            />
-            <Answer answer={value} />
+          <div key={questionIndex.toString() + "_" + index}>
+            <input type="radio" name="radioButton" onChange={handleChange} value={index + 1}/>
+            <Answer answer={element} />
           </div>
         );
       })}

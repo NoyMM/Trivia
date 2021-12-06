@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import "../cssFiles/App.css";
+import "./App.css";
 
 const App: React.FC = () => {
   return (

@@ -1,7 +1,31 @@
 [
-    "What was the first soft drink in space?",
-    "Which is the only edible food that never goes bad?",
-    "Which country invented ice cream?",
-    "From which country does Gouda cheese originate?",
-    "Which country consumes the most chocolate per capita?"
+  {
+    "question": "What was the first soft drink in space?",
+    "answers": ["Sprite", "Coca Cola", "Fanta", "Pepsi"],
+    "correctAnswer": "2"
+  },
+
+  {
+    "question": "Which is the only edible food that never goes bad?",
+    "answers": ["cocoa", "Paprika", "Garlic", "Honey"],
+    "correctAnswer": "4"
+  },
+
+  {
+    "question": "Which country invented ice cream?",
+    "answers": ["China", "Spain", "Switzerland", "Netherlands"],
+    "correctAnswer": "1"
+  },
+
+  {
+    "question": "From which country does Gouda cheese originate?",
+    "answers": ["England", "Italy", "Switzerland", "Netherlands"],
+    "correctAnswer": "4"
+  },
+
+  {
+    "question": "Which country consumes the most chocolate per capita?",
+    "answers": ["China", "Spain", "Switzerland", "Netherlands"],
+    "correctAnswer": "3"
+  }
 ]

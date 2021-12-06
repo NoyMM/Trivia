@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
@@ -10,9 +10,17 @@ import store from "./store";
 import QuestionPage from "./components/questionPage";
 import FinishPage from "./components/finishPage";
 import StartPage from "./components/startPage";
+import { useAppDispatch } from "./store/hooks";
+import { fetchTriviaDataAsync } from "./store/triviaSlice";
 
-ReactDOM.render(
-  <Provider store={store}>
+const AppWithRouting: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTriviaDataAsync());
+  }, [dispatch]);
+
+  return (
     <BrowserRouter>
       <React.StrictMode>
         <Routes>
@@ -25,6 +33,12 @@ ReactDOM.render(
         </Routes>
       </React.StrictMode>
     </BrowserRouter>
+  );
+};
+
+ReactDOM.render(
+  <Provider store={store}>
+    <AppWithRouting />
   </Provider>,
 
   document.getElementById("root")

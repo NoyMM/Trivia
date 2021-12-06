@@ -1,5 +1,5 @@
 import React from "react";
-import "../cssFiles/App.css";
+import "./App.css";
 import { useDispatch } from "react-redux";
 import { startGame } from "../store/triviaSlice";
 import { NavLink } from "react-router-dom";
